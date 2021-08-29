@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _countCoins; i++)
         {
             var newPosition = new Vector2(transform.position.x + _distanceBetweenCoints * i, transform.position.y);
-            Instantiate(_coin, newPosition, Quaternion.identity);
+            Instantiate(_coin, newPosition, Quaternion.identity, transform);
         }
     }
 }

@@ -11,10 +11,13 @@ public class PlayerAnimator : MonoBehaviour
     private PlayerInput _input;
     private PlayerMover _mover;
 
+    private const string Walk = "Walk";
+    private const string IsGrouded = "IsGrounded";
+
     public void Stop()
     {
-        _animator.SetBool("Walk", false);
-        _animator.SetBool("Jump", false);
+        _animator.SetBool(Walk, false);
+        _animator.SetBool(IsGrouded, true);
     }
 
     public void MoveLeft()
@@ -30,12 +33,12 @@ public class PlayerAnimator : MonoBehaviour
     public void Move(bool flipX)
     {
         _spriteRenderer.flipX = flipX;
-        _animator.SetBool("Walk", true);
+        _animator.SetBool(Walk, true);
     }
 
     public void Jump()
     {
-        _animator.SetBool("Jump", true);
+        _animator.SetBool(IsGrouded, false);
     }
 
     private void Awake()
